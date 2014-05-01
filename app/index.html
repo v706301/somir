@@ -19,10 +19,14 @@
     <link rel="stylesheet" href="styles/main.css">
     <!-- endbuild -->
   </head>
-  <body ng-app="ang1App">
+  <body ng-app="somirApp">
     <!--[if lt IE 7]>
       <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve your experience.</p>
     <![endif]-->
+
+    
+    <div class="container" data-ng-controller="MenuCtrl"><menu-generator /></div>
+
 
     <!-- Add your site or application content here -->
     <div class="container" ng-view=""></div>
@@ -62,6 +66,10 @@
         <!-- build:js({.tmp,app}) scripts/scripts.js -->
         <script src="scripts/app.js"></script>
         <script src="scripts/controllers/main.js"></script>
+        <script src="scripts/controllers/about.js"></script>
+        <script src="scripts/controllers/menu.js"></script>
+        <script src="scripts/directives/menugenerator.js"></script>
+        <script src="scripts/services/loadmenu.js"></script>
         <!-- endbuild -->
 </body>
 </html>
