@@ -1,0 +1,11 @@
+User-agent: *
+Allow: /
+Allow: /index.php
+Allow: /photoalbumlist.php
+Allow: /photoalbum.php
+Disallow: /admin/
+Disallow: /ajaxcalls/
+Disallow: /images/
+Disallow: /include/
+Disallow: /logoff.php
+Disallow: /style.css.php
