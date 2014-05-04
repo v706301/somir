@@ -4,6 +4,7 @@ angular.module('somirApp', [
         'ngCookies',
         'ngResource',
         'ngSanitize',
+        'ui.bootstrap',
         'ngRoute'
     ])
     .config(function ($routeProvider) {

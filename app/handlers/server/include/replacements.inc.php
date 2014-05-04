@@ -1,4 +1,0 @@
-<?php
-  $replacements = array(
-  );
-?>
