@@ -1,43 +1,57 @@
 <div class="header">
-  <ul class="nav nav-pills pull-right">
-    <li class="active"><a ng-href="#">Home</a></li>
-    <li><a ng-href="#/about">About</a></li>
-    <li><a ng-href="#/contact">Contact</a></li>
-  </ul>
-  <h3 class="text-muted">somir</h3>
+    <div class="pull-right search-container">
+        <input type="text" ng-model="selectedSearchItem" placeholder="Поиск"
+               typeahead="found for found in search($viewValue)"
+               typeahead-loading="searchWorking"
+               typeahead-on-select="searchItemSelected($item, $model, $label)"
+               class="form-control">
+        <i style="position: absolute; top: 10px; right: 10px" ng-show="searchWorking" class="glyphicon glyphicon-refresh"></i>
+    </div>
+    <h3 class="text-muted">Кактусы и Суккуленты от Мирошниченко, Харьков</h3>
 </div>
 
-<div class="jumbotron">
-    <div ng-controller="MainCtrl">
-        <div style="height: 305px">
-            <carousel interval="myInterval">
-                <slide ng-repeat="slide in slides" active="slide.active">
-                    <img ng-src="{{slide.image}}" style="margin:auto;">
-                    <div class="carousel-caption">
-                        <h4>Slide {{$index}}</h4>
-                        <p>{{slide.text}}</p>
-                    </div>
-                </slide>
-            </carousel>
-        </div>
+<div ng-controller="MainCtrl">
+    <div style="height: 455px">
+        <carousel interval="slideInterval">
+            <slide ng-repeat="slide in slides" active="slide.active">
+                <img ng-src="{{slide.image}}" style="margin:auto; height: 455px;">
+                <div class="carousel-caption">
+                    <p>{{slide.text}}</p>
+                </div>
+            </slide>
+        </carousel>
     </div>
 </div>
 
-<div class="row marketing">
-  <h4>HTML5 Boilerplate</h4>
-  <p>
-    HTML5 Boilerplate is a professional front-end template for building fast, robust, and adaptable web apps or sites.
-  </p>
+<table class="container bottom-menu">
+    <tr>
+        <td>
+            <a href="#/plants">
+                <h6>Взрослые растения</h6>
+                <img alt="" src="/images/plant.jpg" />
+            </a>
+        </td>
+        <td>
+            <a href="#/seedlings">
+                <h6>Сеянцы</h6>
+                <img alt="" src="/images/seedling.png" />
+            </a>
+        </td>
+        <td>
+            <a href="#/seeds">
+                <h6>Семена</h6>
+                <img alt="" src="/images/seeds.png" />
+            </a>
+        </td>
+        <td>
+            <a href="#/gallery">
+                <h6>Фотогалерея</h6>
+                <img alt="" src="/images/photogallery.png" />
+            </a>
+        </td>
+    </tr>
+</table>
 
-  <h4>Angular</h4>
-  <p>
-    AngularJS is a toolset for building the framework most suited to your application development.
-  </p>
-
-  <h4>Karma</h4>
-  <p>Spectacular Test Runner for JavaScript.</p>
-</div>
-
-<div class="footer">
-  <p>♥ from the Yeoman team</p>
+<div class="footer text-center">
+    <p><a href="mailto:astrophytum.som@gmail.com" title="Сергей и Ольга Мирошниченко, Харьков">&copy; Somir</a></p>
 </div>

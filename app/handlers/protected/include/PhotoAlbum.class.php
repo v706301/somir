@@ -219,7 +219,7 @@ _FIELDS_;
         throw new Exception("Не удалось обнаружить фотоальбом под номером " . $id);
     }
 
-    public function dbReadPhotosRandom($limit = 30)
+    public static function dbReadPhotosRandom($limit = 30)
     {
         global $dbprefix;
         $db = getDatabase();
@@ -372,7 +372,7 @@ _FIELDS_;
             return "";
     }
 
-    public static function dbSearchPhotos($search, $orderby = "name")
+    public static function dbSearchPhotos($search, $orderby = "name", $limit = false)
     {
         global $dbprefix;
         $photos = array();
@@ -395,6 +395,9 @@ _FIELDS_;
                 , (User::isOperatorAdmin(User::getOperatorId()) ? "" : "and (pa.is_hidden is null or pa.is_hidden=0) and p.is_hidden=0\n")
                 , $orderby
             );
+            if ($limit) {
+                $query .= ' limit ' . $limit;
+            }
             $rs = $db->query($query, __FILE__ . ":" . __LINE__);
             $photos = array();
             while ($rs && $photo = $db->fetch_assoc($rs)) {

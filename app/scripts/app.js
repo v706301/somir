@@ -9,17 +9,36 @@ angular.module('somirApp', [
     ])
     .config(function ($routeProvider) {
         $routeProvider
+        /**
+         * Top menu
+         */
             .when('/', {
                 templateUrl: 'views/main.html',
                 controller: 'MainCtrl'
             })
-            .when('/about', {
-                templateUrl: 'views/about.html',
-                controller: 'AboutCtrl'
-            })
             .when('/contacts', {
                 templateUrl: 'views/contacts.html',
                 controller: 'AboutCtrl'
+            })
+
+        /**
+         * Bottom menu
+         */
+            .when('/plants', {
+                templateUrl: 'views/plants.html',
+                controller: 'ShopCtrl'
+            })
+            .when('/seedlings', {
+                templateUrl: 'views/seedlings.html',
+                controller: 'ShopCtrl'
+            })
+            .when('/seeds', {
+                templateUrl: 'views/seeds.html',
+                controller: 'ShopCtrl'
+            })
+            .when('/gallery', {
+                templateUrl: 'views/gallery.html',
+                controller: 'GalleryCtrl'
             })
             .otherwise({
                 redirectTo: '/'
